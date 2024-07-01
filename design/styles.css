@@ -187,9 +187,9 @@ h5 {
 }
   .container1 {
     position: absolute;
-    width: 320px;
+    width: 290px;
     height: 180px;
-    left: 20px;
+    left: 15px;
     top: 140px; /* Adjust to overlap container2 */
     z-index: 2; /* Ensure container1 is on top */
 }
@@ -200,7 +200,7 @@ h5 {
 }
 .container2 {
     position: relative;
-    width: 320px;
+    width: 290px;
     height: 180px;
     left: 20px;
     top: 20px; /* Position container2 below container1 */
@@ -212,7 +212,7 @@ h5 {
   }
   form {
     width: 100%;
-    border: 2px solid;
+    margin-top: 2rem;
 }
 #MM,
 #YY {
@@ -223,6 +223,13 @@ h5 {
 #CVC {
   width: 100px;
   padding: 10px;
+}
+input {
+  width: 300px;
+}
+
+button {
+  width: 300px;
 }
 
 .attribution {
