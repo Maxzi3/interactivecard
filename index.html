@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./design/styles.css">
+    <title>Frontend Mentor | Interactive card details form</title>
+
+   
+  </head>
+
+  <body>
+    <section>
+      <article>
+        <div class="container1">
+          <svg
+            width="84"
+            height="47"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse cx="23.478" cy="23.5" rx="23.478" ry="23.5" fill="#fff" />
+            <path
+              d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z"
+              stroke="#fff"
+            />
+          </svg>
+          <h1 class="head1">0000 0000 0000 0000</h1>
+          <div class="item">
+            <h3 id="head2">Jane Appleseed</h3>
+            <h4><span class="MM">OO</span>/<span class="YY">OO</span></h4>
+          </div>
+        </div>
+        <div class="container2">
+          <h1 class="head2">000</h1>
+        </div>
+      </article>
+      <form>
+        <label for="Cardholder Name">Cardholder Name</label>
+        <input
+          type="text"
+          name="CardName"
+          id="CardName"
+          placeholder="e.g. Jane Appleseed"
+        />
+        <label for="CVC">Card Number</label>
+        <input
+          type="text"
+          name="CardNumber"
+          id="CardNumber"
+          placeholder="e.g. 1234 5678 9123 0000"
+        />
+        <p class="Card-number-error">Wrong Format, Numbers only</p>
+        <div class="div">
+        <label for="Exp. Date (MM/YY)">Exp. Date (MM/YY)</label>
+        <label for="CVC">CVC</label>
+      </div>
+        <div class="div">
+          <main>
+          <input type="text" name="MM" id="MM" placeholder="MM" />
+          <input type="text" name="YY" id="YY" placeholder="YY" />
+          <p id="p1">Can't be Blank</p>
+        </main>
+        <main>
+          <input type="text" name="CVC" id="CVC" placeholder="e.g. 123" />
+          <p id="p2">Can't be Blank</p>
+        </main>
+        </div>
+        <button class="btn1">Confirm</button>
+      </form>
+      <!-- Completed state start -->
+      <div class="item2 display1">
+        <svg
+          width="80"
+          height="80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="40" cy="40" r="40" fill="url(#a)" />
+          <path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3" />
+          <defs>
+            <linearGradient
+              id="a"
+              x1="-23.014"
+              y1="11.507"
+              x2="0"
+              y2="91.507"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#6348FE" />
+              <stop offset="1" stop-color="#610595" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <h1 class="h2">Thank You!</h1>
+        <h5 class="h5">We've added your card details</h5>
+        <button class="btn2">Continue</button>
+      </div>
+    </section>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+
+    <script>
+      const form = document.querySelector("form");
+      const cardNum = document.querySelector(".head1");
+      const cardNm = document.querySelector("#head2");
+      const month = document.querySelector(".MM");
+      const year = document.querySelector(".YY");
+      const Ccv = document.querySelector(".head2");
+      const inMM = document.querySelector("#MM");
+      const inYY = document.querySelector("#YY");
+      const incN = document.querySelector("#CardNumber");
+      const inCVC = document.querySelector("#CVC");
+      const cardName = document.querySelector("#CardName");
+      const cardNumber = document.querySelector("#CardNumber");
+      const expDateMM = document.querySelector("#MM");
+      const expDateYY = document.querySelector("#YY");
+      const cvc = document.querySelector("#CVC");
+      const confirmButton = document.querySelector(".btn1");
+      const Continue = document.querySelector(".btn2");
+      const completedState = document.querySelector(".item2");
+      const expDateMMYY = document.querySelector("#p1");
+      const cardNumberError = document.querySelector(".Card-number-error");
+      const cvcError = document.querySelector("#p2");
+
+      confirmButton.addEventListener(
+        "click",
+        (confirm = (e) => {
+          e.preventDefault();
+          let cardNumberPattern = /^[0-9]{13,16}$/;
+          let cvcPattern = /^[0-9]{3,4}$/;
+          // let cardNamePattern = /^[a-zA-Z ]+$/;
+          let expDateMMPattern = /^[0-9]{2}$/;
+          let expDateYYPattern = /^[0-9]{2}$/;
+          let cardholdername = cardName.value;
+          let cardnumber = cardNumber.value;
+          let expdatemm = expDateMM.value;
+          let expdateyy = expDateYY.value;
+          let cvcnumber = cvc.value;
+
+          if (
+            cardNumberPattern.test(cardnumber) &&
+            cvcPattern.test(cvcnumber) &&
+            expDateMMPattern.test(expdatemm) &&
+            expDateYYPattern.test(expdateyy)
+          ) {
+            cardNum.textContent = cardnumber;
+            cardNm.textContent = cardholdername;
+            month.textContent = expdatemm;
+            year.textContent = expdateyy;
+            Ccv.textContent = cvcnumber;
+            form.style.display = "none";
+            completedState.style.display = "flex";
+          } else {
+            if (!cardNumberPattern.test(cardnumber)) {
+      cardNumberError.style.display = "block";
+      incN.style.border ="1px solid red"
+    } else {
+      cardNumberError.style.display = "none";
+    }
+
+    if (!cvcPattern.test(cvcnumber)) {
+      cvcError.style.display = "block";
+      inCVC.style.border ="1px solid red"
+    } else {
+      cvcError.style.display = "none";
+    }
+
+    if (!expDateMMPattern.test(expdatemm)) {
+      expDateMMYY.style.display = "block";
+      inMM.style.border ="1px solid red"
+      inYY.style.border ="1px solid red"
+    } else {
+      expDateMMYY.style.display = "none";
+    }
+    if (!expDateYYPattern.test(expdateyy)) {
+      expDateMMYY.style.display = "block";
+      inYY.style.border ="1px solid red"
+    } else {
+      expDateMMYY.style.display = "none";
+    }
+          }
+        })
+      );
+
+      Continue.addEventListener(
+        "click",
+        (back = () => {
+          completedState.style.display = "none";
+          form.style.display = "flex";
+          location.reload();
+        })
+      );
+    </script>
+  </body>
+</html>
