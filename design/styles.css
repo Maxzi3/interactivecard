@@ -236,6 +236,23 @@ button {
     position: relative;
     top: 10px;
 }
+.item2 {
+  position: relative;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  padding: 1rem 0;
+}
+h2 {
+  padding-top: 2rem;
+}
+
+h5 {
+  padding: 2rem 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
 }
 /* @media screen and (max-width: 7600px){
 section {
